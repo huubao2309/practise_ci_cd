@@ -17,7 +17,7 @@ jobs:
             - name: Setup .NET
               uses: actions/setup-dotnet@v1
               with:
-                dotnet-version: 5.0.x
+                dotnet-version: 9
             
             # install OpenSSL 1.1
             # https://github.com/dotnet/core/issues/4749#issuecomment-2329706172
