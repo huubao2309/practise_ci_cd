@@ -8,23 +8,23 @@ on:
 
 jobs:
     build:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-20.x
 
         steps:
             - uses: actions/checkout@v2
 
             # Setup dotnet on runner
             - name: Setup .NET
-              uses: actions/setup-dotnet@v4
+              uses: actions/setup-dotnet@v1
               with:
-                dotnet-version: 9.x
+                dotnet-version: 5.x
             
-            # install OpenSSL 1.1
-            # https://github.com/dotnet/core/issues/4749#issuecomment-2329706172
-            - name: Install OpenSSL 1.1
-              run: |
-                wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb
-                sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb`
+            # # install OpenSSL 1.1
+            # # https://github.com/dotnet/core/issues/4749#issuecomment-2329706172
+            # - name: Install OpenSSL 1.1
+            #   run: |
+            #     wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb
+            #     sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb`
             
             - name: Restore dependencies
               run: dotnet restore
