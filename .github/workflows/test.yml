@@ -34,9 +34,9 @@ jobs:
 
             # List files in the repository
             # Note: There should only be the one file in the repo
-            - name: List files in the repository
-              run: |
-                ls ${{ github.workspace }}
+            # - name: List files in the repository
+            #   run: |
+            #     ls ${{ github.workspace }}
   
             # Setup dotnet on runner
             - name: Setup dotnet on runner
@@ -48,4 +48,9 @@ jobs:
             - name: Display dotnet version
               run: dotnet --version
 
-              
+            # List files in tool cache
+            - name: List files in tool cache
+              run: |
+                ls ${{ runner.tool_cache }}
+
+            - run: echo "This job's status is ${{ job.status }}."    
