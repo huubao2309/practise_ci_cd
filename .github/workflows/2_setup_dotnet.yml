@@ -19,11 +19,12 @@ jobs:
               with:
                 dotnet-version: 5.0.x
             
-            # install libssl1.1
-            # https://stackoverflow.com/a/74948900/10262450
-            - name: install libssl1.1 
+            # install OpenSSL 1.1
+            # https://github.com/dotnet/core/issues/4749#issuecomment-2329706172
+            - name: Install OpenSSL 1.1
               run: |
-                ln -s /usr/lib/libssl.so.47.0.6 /usr/lib/libssl.so.1.0.0
+                wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
+                sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
             
             - name: Restore dependencies
               run: dotnet restore
