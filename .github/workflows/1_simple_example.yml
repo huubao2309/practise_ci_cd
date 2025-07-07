@@ -1,63 +1,63 @@
-name: Upload
+# name: Upload
 
-on:
-    push:
-        branches: [main]
-    pull_request:
-        branches: [main]
+# on:
+#     push:
+#         branches: [main]
+#     pull_request:
+#         branches: [main]
 
-jobs:
-    Example-Actions-Job:
-        runs-on: ubuntu-latest
+# jobs:
+#     Example-Actions-Job:
+#         runs-on: ubuntu-latest
 
-        steps:
-            # Display the event that triggerd the workflow
-            - run: echo "The job was triggered by a ${{ github.event_name}} event"
+#         steps:
+#             # Display the event that triggerd the workflow
+#             - run: echo "The job was triggered by a ${{ github.event_name}} event"
 
-            # Runner information
-            - run: echo "This job is now running on a ${{ runner.os }} server hosted by Github"
+#             # Runner information
+#             - run: echo "This job is now running on a ${{ runner.os }} server hosted by Github"
 
-            # Information about the repository and branch
-            - run: echo "the name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}"
+#             # Information about the repository and branch
+#             - run: echo "the name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}"
 
 
-            # usse Action located in https://github.com/actions
-            - name: Check out repository code
-              uses: actions/checkout@v2
+#             # usse Action located in https://github.com/actions
+#             - name: Check out repository code
+#               uses: actions/checkout@v2
 
-            - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
+#             - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
             
-            # conditional step when event name is pull request
-            - name: conditional step when event name is pull request
-              if: ${{ github.event_name == 'pull_request'}}
-              run: echo "This event is a pull request"
+#             # conditional step when event name is pull request
+#             - name: conditional step when event name is pull request
+#               if: ${{ github.event_name == 'pull_request'}}
+#               run: echo "This event is a pull request"
 
-            # List files in the repository
-            # Note: There should only be the one file in the repo
-            # - name: List files in the repository
-            #   run: |
-            #     ls ${{ github.workspace }}
+#             # List files in the repository
+#             # Note: There should only be the one file in the repo
+#             # - name: List files in the repository
+#             #   run: |
+#             #     ls ${{ github.workspace }}
   
-            # Setup dotnet on runner
-            - name: Setup dotnet on runner
-              uses: actions/setup-dotnet@v1
-              with:
-                dotnet-version: '3.x'
+#             # Setup dotnet on runner
+#             - name: Setup dotnet on runner
+#               uses: actions/setup-dotnet@v1
+#               with:
+#                 dotnet-version: '3.x'
             
-            # Show dotnet version
-            - name: Display dotnet version
-              run: dotnet --version
+#             # Show dotnet version
+#             - name: Display dotnet version
+#               run: dotnet --version
 
-            # List files in tool cache
-            - name: List files in tool cache
-              run: |
-                ls ${{ runner.tool_cache }}
+#             # List files in tool cache
+#             - name: List files in tool cache
+#               run: |
+#                 ls ${{ runner.tool_cache }}
 
-            - run: echo "This job's status is ${{ job.status }}."
+#             - run: echo "This job's status is ${{ job.status }}."
 
-    Second-Job:
-        name: The second job running on another runner
-        runs-on: ubuntu-latest 
-        needs: Example-Actions-Job
-        steps:
-            - run: echo "This job is now running on a ${{ runner.os }} server hosted by Github."
+#     Second-Job:
+#         name: The second job running on another runner
+#         runs-on: ubuntu-latest 
+#         needs: Example-Actions-Job
+#         steps:
+#             - run: echo "This job is now running on a ${{ runner.os }} server hosted by Github."
