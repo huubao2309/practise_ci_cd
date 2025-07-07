@@ -5,4 +5,19 @@ on:
         branches: [master]
     pull_request:
         branches: [master]
-        
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            # Display the event that triggerd the workflow
+            - run: echo "The job was triggered by a ${{ github.event_name}} event"
+
+            # Runner information
+            - run: echo "This job is now running on a ${{ runner.os }} server hosted by Github"
+
+            # Information about the repository and branch
+            - run: echo "tha name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}"
+
+
