@@ -27,4 +27,8 @@ jobs:
 
             - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
             
+            # conditional step wwhen event name is pull request
+            - name: conditional step wwhen event name is pull request
+              if: ${{ github.event_name == 'pull_request'}}
+              run: echo "This event is a pull request"
   
