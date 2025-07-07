@@ -19,8 +19,14 @@ jobs:
               with:
                 dotnet-version: 5.0.x
             
-            # - name: Restore dependencies
-            #   run: dotnet restore
+            # install libssl1.1
+            # https://stackoverflow.com/a/74948900/10262450
+            - name: install libssl1.1 
+              run: |
+                ln -s /usr/lib/libssl.so.47.0.6 /usr/lib/libssl.so.1.0.0
+            
+            - name: Restore dependencies
+              run: dotnet restore
 
             - name: Build
               run: dotnet build --no-restore
