@@ -8,7 +8,7 @@
 
  jobs:
      Example-Actions-Job:
-         runs-on: self-hosted
+         runs-on: ubuntu-latest
 
          steps:
              # Display the event that triggerd the workflow
