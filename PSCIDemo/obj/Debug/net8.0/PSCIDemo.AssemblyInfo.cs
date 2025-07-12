@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PSCIDemo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d6bdb0e4817b6e61287d9b1a6ec648ae3a51acd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64c2585dbc8bcf4cb321251c573ebe0caa24802e")]
 [assembly: System.Reflection.AssemblyProductAttribute("PSCIDemo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PSCIDemo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
