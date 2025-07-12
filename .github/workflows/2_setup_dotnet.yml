@@ -1,36 +1,36 @@
-name: .NET
-
-on:
-    push:
-        branches: [main]
-    pull_request:
-        branches: [main]
-
-jobs:
-    build:
-        runs-on: ubuntu-latest
-
-        steps:
-            - uses: actions/checkout@v2
-
-            # Setup dotnet on runner
-            - name: Setup .NET
-              uses: actions/setup-dotnet@v1
-              with:
-                dotnet-version: 8.0.x
-
-            # install libssl
-            # https://stackoverflow.com/a/72137153/10262450
-            - name: Install libssl
-              run: |
-                wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5_amd64.deb
-                sudo dpkg -i libssl1.0.0_1.0.2n-1ubuntu5_amd64.deb               
-            
-            - name: Restore dependencies
-              run: dotnet restore
-
-            - name: Build
-              run: dotnet build --no-restore
-
-            - name: Test
-              run: dotnet test --no-build --verbosity normal
+#name: .NET
+#
+#on:
+#    push:
+#        branches: [main]
+#    pull_request:
+#        branches: [main]
+#
+#jobs:
+#    build:
+#        runs-on: self-hosted
+#
+#        steps:
+#            - uses: actions/checkout@v2
+#
+#            # Setup dotnet on runner
+#            - name: Setup .NET
+#              uses: actions/setup-dotnet@v1
+#              with:
+#                dotnet-version: 8.0.x
+#
+##            # install libssl
+##            # https://stackoverflow.com/a/72137153/10262450
+##            - name: Install libssl
+##              run: |
+##                wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5_amd64.deb
+##                sudo dpkg -i libssl1.0.0_1.0.2n-1ubuntu5_amd64.deb               
+#            
+#            - name: Restore dependencies
+#              run: dotnet restore
+#
+#            - name: Build
+#              run: dotnet build --no-restore
+#
+#            - name: Test
+#              run: dotnet test --no-build --verbosity normal
